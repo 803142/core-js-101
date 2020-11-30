@@ -135,12 +135,12 @@ function isTriangle(a, b, c) {
  *
  */
 function doRectanglesOverlap(rect1, rect2) {
-  const con1 = (rect1.top < rect2.top + rect2.height);
-  const con2 = (rect2.top < rect1.top + rect1.height);
-  const con3 = (rect1.left < rect2.left + rect2.width);
-  const con4 = (rect2.left < rect1.left + rect1.width);
+  const con1 = rect1.top < rect2.top + rect2.height;
+  const con2 = rect2.top < rect1.top + rect1.height;
+  const con3 = rect1.left < rect2.left + rect2.width;
+  const con4 = rect2.left < rect1.left + rect1.width;
 
-  return (con1 && con2 && con3 && con4);
+  return con1 && con2 && con3 && con4;
 }
 
 /**
@@ -171,9 +171,7 @@ function doRectanglesOverlap(rect1, rect2) {
  */
 function isInsideCircle(circle, point) {
   return (
-    Math.sqrt(
-      (circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2,
-    ) < circle.radius
+    Math.sqrt((circle.center.x - point.x) ** 2 + (circle.center.y - point.y) ** 2) < circle.radius
   );
 }
 
@@ -223,7 +221,7 @@ function findFirstSingleChar(str) {
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
   const starter = isStartIncluded ? '[' : '(';
   const ending = isEndIncluded ? ']' : ')';
-  const middle = (a < b) ? `${a}, ${b}` : `${b}, ${a}`;
+  const middle = a < b ? `${a}, ${b}` : `${b}, ${a}`;
   return starter + middle + ending;
 }
 
@@ -292,12 +290,12 @@ function isCreditCardNumber(ccn) {
     `${ccn}`
       .split('')
       .reverse()
-      .map((x) => parseInt(x, 10))
+      .map(x => parseInt(x, 10))
       .map((x, idx) => (idx % 2 ? x * 2 : x))
-      .map((x) => (x > 9 ? (x % 10) + 1 : x))
-      .reduce((acc, x) => acc + x)
-    % 10
-    === 0
+      .map(x => (x > 9 ? (x % 10) + 1 : x))
+      .reduce((acc, x) => acc + x) %
+      10 ===
+    0
   );
 }
 

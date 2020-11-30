@@ -110,9 +110,8 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
   return (x1 === x2) === 0 || (y1 === y2) === 0
     ? 0
     : Math.acos(
-      (x1 * x2 + y1 * y2)
-          / (Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2)),
-    );
+        (x1 * x2 + y1 * y2) / (Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2))
+      );
 }
 
 /**

@@ -124,10 +124,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-  return (
-    str.slice(0, str.indexOf(value))
-    + str.slice(str.indexOf(value) + value.length)
-  );
+  return str.slice(0, str.indexOf(value)) + str.slice(str.indexOf(value) + value.length);
 }
 
 /**
@@ -242,8 +239,8 @@ function getRectangleString(width, height) {
 function encodeToRot13(str) {
   const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-  const index = (x) => input.indexOf(x);
-  const translate = (x) => (index(x) > -1 ? output[index(x)] : x);
+  const index = x => input.indexOf(x);
+  const translate = x => (index(x) > -1 ? output[index(x)] : x);
   return str
     .split('')
     .map(translate)

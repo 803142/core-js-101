@@ -5,7 +5,6 @@
  *                                                                                                *
  ************************************************************************************************ */
 
-
 /**
  * Return Promise object that is resolved with string value === 'Hooray!!! She said "Yes"!',
  * if boolean value === true is passed, resolved with string value === 'Oh no, she said "No".',
@@ -38,7 +37,6 @@ function willYouMarryMe(isPositiveAnswer) {
     }
   });
 }
-
 
 /**
  * Return Promise object that should be resolved with array containing plain values.
@@ -82,7 +80,6 @@ function getFastestPromise(array) {
   return Promise.race(array);
 }
 
-
 /**
  * Return Promise object that should be resolved with value that is
  * a result of action with values of all the promises that exists in array.
@@ -102,12 +99,14 @@ function getFastestPromise(array) {
  */
 function chainPromises(array, action) {
   const result = [];
-  const arr = array.map((promice) => Promise.resolve(promice)
-    .then((value) => {
-      result.push(value);
-    })
-    .then(() => result.reduce(action))
-    .catch(() => { }))[0];
+  const arr = array.map(promice =>
+    Promise.resolve(promice)
+      .then(value => {
+        result.push(value);
+      })
+      .then(() => result.reduce(action))
+      .catch(() => {})
+  )[0];
   return arr;
 }
 

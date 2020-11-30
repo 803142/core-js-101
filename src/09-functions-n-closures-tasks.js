@@ -8,7 +8,6 @@
  *                                                                                             *
  ********************************************************************************************* */
 
-
 /**
  * Returns the functions composition of two specified functions f(x) and g(x).
  * The result of compose is to be a function of one argument, (lets call the argument x),
@@ -27,7 +26,6 @@ function getComposition(f, g) {
   return (...arg) => f(g(...arg));
 }
 
-
 /**
  * Returns the math power function with the specified exponent
  *
@@ -45,9 +43,8 @@ function getComposition(f, g) {
  *
  */
 function getPowerFunction(exponent) {
-  return (num) => num ** exponent;
+  return num => num ** exponent;
 }
-
 
 /**
  * Returns the polynom function of one argument based on specified coefficients.
@@ -64,12 +61,23 @@ function getPowerFunction(exponent) {
  */
 function getPolynom(a, b, c) {
   let result = null;
-  if (!!a && !!b && !!c) { result = function res(x) { return a * x ** 2 + b * x + c; }; }
-  if (!!a && !!b && !c) { result = function res(x) { return a * x + b; }; }
-  if (!!a && !b && !c) { result = function res() { return a; }; }
+  if (!!a && !!b && !!c) {
+    result = function res(x) {
+      return a * x ** 2 + b * x + c;
+    };
+  }
+  if (!!a && !!b && !c) {
+    result = function res(x) {
+      return a * x + b;
+    };
+  }
+  if (!!a && !b && !c) {
+    result = function res() {
+      return a;
+    };
+  }
   return result;
 }
-
 
 /**
  * Memoizes passed function and returns function
@@ -89,7 +97,6 @@ function memoize(/* func */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the function trying to call the passed function and if it throws,
  * retrying it specified number of attempts.
@@ -108,7 +115,6 @@ function memoize(/* func */) {
 function retry(/* func, attempts */) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the logging wrapper for the specified method,
@@ -137,7 +143,6 @@ function logger(/* func, logFunc */) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Return the function with partial applied arguments
  *
@@ -154,7 +159,6 @@ function logger(/* func, logFunc */) {
 function partialUsingArguments(fn, ...args1) {
   return (...arg) => fn(...args1, ...arg);
 }
-
 
 /**
  * Returns the id generator function that returns next integer starting
@@ -183,7 +187,6 @@ function getIdGeneratorFunction(startFrom) {
 
   return nextId;
 }
-
 
 module.exports = {
   getComposition,
