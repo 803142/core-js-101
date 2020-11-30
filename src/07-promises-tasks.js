@@ -99,14 +99,12 @@ function getFastestPromise(array) {
  */
 function chainPromises(array, action) {
   const result = [];
-  const arr = array.map(promice =>
-    Promise.resolve(promice)
-      .then(value => {
-        result.push(value);
-      })
-      .then(() => result.reduce(action))
-      .catch(() => {})
-  )[0];
+  const arr = array.map((promice) => Promise.resolve(promice)
+    .then((value) => {
+      result.push(value);
+    })
+    .then(() => result.reduce(action))
+    .catch(() => {}))[0];
   return arr;
 }
 

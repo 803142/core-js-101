@@ -290,12 +290,12 @@ function isCreditCardNumber(ccn) {
     `${ccn}`
       .split('')
       .reverse()
-      .map(x => parseInt(x, 10))
+      .map((x) => parseInt(x, 10))
       .map((x, idx) => (idx % 2 ? x * 2 : x))
-      .map(x => (x > 9 ? (x % 10) + 1 : x))
-      .reduce((acc, x) => acc + x) %
-      10 ===
-    0
+      .map((x) => (x > 9 ? (x % 10) + 1 : x))
+      .reduce((acc, x) => acc + x)
+      % 10
+    === 0
   );
 }
 

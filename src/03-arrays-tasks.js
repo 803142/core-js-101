@@ -67,7 +67,7 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-  return arr.filter(a => a > 0);
+  return arr.filter((a) => a > 0);
 }
 
 /**
@@ -82,7 +82,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccoon' ] => [ 'cat', 'dog', 'raccoon' ]
  */
 function getArrayOfStrings(arr) {
-  return arr.filter(a => `${a}` === a);
+  return arr.filter((a) => `${a}` === a);
 }
 
 /**
@@ -99,7 +99,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  return arr.filter(a => !!a);
+  return arr.filter((a) => !!a);
 }
 
 /**
@@ -114,7 +114,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-  return arr.map(a => a.toUpperCase());
+  return arr.map((a) => a.toUpperCase());
 }
 
 /**
@@ -128,7 +128,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  return arr.map(a => a.length);
+  return arr.map((a) => a.length);
 }
 
 /**
@@ -196,7 +196,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-  return arr.map(a => a.join(',')).join('\n');
+  return arr.map((a) => a.join(',')).join('\n');
 }
 
 /**
@@ -211,7 +211,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-  return arr.map(a => a * a);
+  return arr.map((a) => a * a);
 }
 
 /**
@@ -296,7 +296,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-  return arr.filter(cur => typeof cur === 'number' && cur > 0).length;
+  return arr.filter((cur) => typeof cur === 'number' && cur > 0).length;
 }
 
 /**
@@ -326,9 +326,9 @@ function sortDigitNamesByNumericOrder(arr) {
     'nine',
   ];
   return arr
-    .map(a => numDictionary.indexOf(a))
+    .map((a) => numDictionary.indexOf(a))
     .sort((a, b) => a - b)
-    .map(a => numDictionary[a]);
+    .map((a) => numDictionary[a]);
 }
 
 /**
@@ -363,7 +363,7 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-  return arr.filter(cur => !cur).length;
+  return arr.filter((cur) => !cur).length;
 }
 
 /**
@@ -381,7 +381,7 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-  return arr.filter(cur => cur === item).length;
+  return arr.filter((cur) => cur === item).length;
 }
 
 /**
@@ -593,10 +593,10 @@ function swapHeadAndTail(arr) {
 
   return middle
     ? [
-        ...arr.slice((arr.length - 1) / 2 + 1),
-        arr[(arr.length - 1) / 2],
-        ...arr.slice(0, (arr.length - 1) / 2),
-      ]
+      ...arr.slice((arr.length - 1) / 2 + 1),
+      arr[(arr.length - 1) / 2],
+      ...arr.slice(0, (arr.length - 1) / 2),
+    ]
     : [...arr.slice(arr.length / 2), ...arr.slice(0, arr.length / 2)];
 }
 
